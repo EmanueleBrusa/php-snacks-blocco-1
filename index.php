@@ -30,22 +30,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snack 1</title>
     <!--bootstrap-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-           <ul>
-                <?php foreach ($partite as $partita): { ?>
-                    <li>
-                        Squadra di casa: <?php echo $partita['squadra_casa']; ?> - Punteggio: <?php echo $partita['punteggio_casa']; ?>
-                    </li>
-                    <li>
-                        Squadra ospite: <?php echo $partita['squadra_ospite']; ?> - Punteggio: <?php echo $partita['punteggio_ospite']; ?>
-                    </li>
-                <?php }?>
-           </ul>
+            <div class="col d-flex justify-content-center">
+                <?php foreach ($partite as $partita) {
+                    $squadraCasa = $partita['squadra_casa'];
+                    $squadraOspite = $partita['squadra_ospite'];
+                    $punteggioCasa = $partita['punteggio_casa'];
+                    $punteggioOspite = $partita['punteggio_ospite'];
+
+                    echo "$squadraCasa - $squadraOspite | $punteggioCasa-$punteggioOspite <br>";
+                }
+                ?>
+            </div>
         </div>
     </div>
 </body>
